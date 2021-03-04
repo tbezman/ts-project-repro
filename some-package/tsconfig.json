@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "sourceMap": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "baseUrl": "."
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test*"]
+}

@@ -1,0 +1,32 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_config", "ts_project")
+
+filegroup(
+    name = "source",
+    srcs = glob(
+        include = ["src/**/*.ts"],
+    )
+)
+
+ts_config(
+    name = "tsconfig",
+    src = ":tsconfig.json",
+)
+
+ts_project(
+    name = "the_project",
+
+    # Using filegroup does not work
+    #srcs = [":source"],
+
+    # Using glob directly does work
+    srcs = glob(["src/**/*.ts"]),
+
+    emit_declaration_only = True,
+    declaration = True,
+    declaration_dir = "types",
+    tsconfig = ":tsconfig",
+    root_dir = "src",
+    allow_js = True,
+    source_map = False,
+    deps = [],
+)
