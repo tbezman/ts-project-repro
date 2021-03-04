@@ -16,10 +16,10 @@ ts_project(
     name = "the_project",
 
     # Using filegroup does not work
-    #srcs = [":source"],
+    srcs = [":source"],
 
     # Using glob directly does work
-    srcs = glob(["src/**/*.ts"]),
+    #srcs = glob(["src/**/*.ts"]),
 
     emit_declaration_only = True,
     declaration = True,
